@@ -2,7 +2,7 @@ package com.secondspace.app
 
 import android.app.Application
 import android.app.admin.DevicePolicyManager
-import android.os.UserManager
+import android.content.pm.CrossProfileApps
 import androidx.lifecycle.AndroidViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -22,18 +22,21 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val appContext = application
     private val dpm: DevicePolicyManager =
         application.getSystemService(DevicePolicyManager::class.java)
-    private val userManager: UserManager =
-        application.getSystemService(UserManager::class.java)
+    private val crossProfileApps: CrossProfileApps =
+        application.getSystemService(CrossProfileApps::class.java)
 
     private val _uiState = MutableStateFlow(UiState(profileExists = detectProfile()))
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
     /**
-     * A work profile exists if the user has more than one profile, or if this app
-     * is itself the profile owner (i.e. we are running inside the work profile).
+     * A work profile exists only if this app is the profile owner (we run inside it) or
+     * this app is installed in another profile of the same user (CrossProfileApps).
+     * Plain "more than one profile" is NOT used: dual-app/clone profiles on some phones
+     * would be counted by mistake.
      */
     private fun detectProfile(): Boolean =
-        userManager.userProfiles.size > 1 || dpm.isProfileOwnerApp(appContext.packageName)
+        dpm.isProfileOwnerApp(appContext.packageName) ||
+            runCatching { crossProfileApps.targetUserProfiles.isNotEmpty() }.getOrDefault(false)
 
     fun refreshStatus() {
         _uiState.update { it.copy(profileExists = detectProfile()) }
