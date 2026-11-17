@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Second Space</string>
+    <string name="work_profile_name">Second Space</string>
+    <string name="toast_profile_ready">Second Space work profile is ready</string>
+
+    <string name="status_title">Work profile status</string>
+    <string name="status_exists">Work profile: Exists</string>
+    <string name="status_missing">Work profile: Not created</string>
+
+    <string name="btn_create">Create Work Profile</string>
+    <string name="btn_open_settings">Open Work Profile Settings</string>
+    <string name="ok">OK</string>
+
+    <string name="howto_title">How to use / استعمال کا طریقہ</string>
+    <string name="howto_en">1. Tap \"Create Work Profile\" and follow the on-screen steps.\n2. After setup, open the Play Store with the briefcase badge (in your app list, under the Work tab).\n3. Install inDrive there and log in with your second account.</string>
+    <string name="howto_ur">1. \"Create Work Profile\" دبائیں اور اسکرین پر دی گئی ہدایات پر عمل کریں۔\n2. سیٹ اپ کے بعد بریف کیس کے نشان والا پلے اسٹور کھولیں (ایپ لسٹ میں Work ٹیب میں)۔\n3. وہاں inDrive انسٹال کریں اور اپنے دوسرے اکاؤنٹ سے لاگ اِن کریں۔</string>
+
+    <string name="warning_title">Warning / انتباہ</string>
+    <string name="warning_en">Some apps may restrict using multiple accounts on one device. Use at your own risk.</string>
+    <string name="warning_ur">کچھ ایپس ایک ڈیوائس پر متعدد اکاؤنٹس کی اجازت نہیں دیتیں۔ اپنی ذمہ داری پر استعمال کریں۔</string>
+
+    <string name="dlg_not_allowed_title">Cannot create work profile</string>
+    <string name="dlg_not_allowed_body">Android is not allowing a work profile to be created right now. Possible reasons:\n\n• A work profile already exists on this phone\n• The phone is already managed by a company or school\n• Your phone maker has disabled or restricted work profiles\n• You are using a secondary user or guest account\n\nOpen Settings, check Accounts for an existing work profile, and try again.</string>
+
+    <string name="dlg_success_title">Setup finished</string>
+    <string name="dlg_success_body">Your work profile has been set up. Open the Play Store with the briefcase badge (Work tab in your app list), install inDrive there, and log in with your second account. If Work apps do not appear yet, wait a few seconds.</string>
+
+    <string name="dlg_cancelled_title">Setup cancelled</string>
+    <string name="dlg_cancelled_body">The work profile was not created. You can try again any time. If it keeps failing, check the troubleshooting notes.</string>
+
+    <string name="dlg_no_activity_title">Not supported on this phone</string>
+    <string name="dlg_no_activity_body">This phone does not have the Android screen needed to create a work profile. Some brands remove it. Check for system updates or try another phone.</string>
+</resources>
